@@ -1,0 +1,33 @@
+<scroll-view class="container" 
+             scroll-y="true" 
+             enhanced="true" 
+             show-scrollbar="false"
+             upper-threshold="120"
+             bindscroll="onContainerScroll"
+>
+  <view class="banner"></view>
+  <view class="bottom-content">
+    <view id="banner2" class="banner2">
+    {{banner2Info}}
+    </view>
+    <view class="banner2 overlay {{fixLeft ? 'fix' : ''}}">
+    {{banner2Info}}
+    </view>
+    <view class="good-content">
+      <scroll-view class="good-content_left {{fixLeft ? 'fix' : ''}}" 
+                   style="{{fixLeft ? fixStyle : ''}}"
+                   scroll-y="true" 
+                   enhanced="true" 
+                   show-scrollbar="false" 
+                   binddragstart="onLeftDragStart"
+      >
+        <view class="menu-item" wx:for="{{subMenus}}">{{item}}</view>
+      </scroll-view>
+      <view class="good-content_right">
+        <view class="good-item" wx:for="{{goods}}">
+          {{item}}
+        </view>
+      </view>
+    </view>
+  </view>
+</scroll-view>
